@@ -108,16 +108,16 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>ADDRESS</name>
+      <name>ADDRESS_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>size</key>
-            <value class="java.lang.Long">100</value>
+            <key>precision</key>
+            <value class="java.lang.String">10</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
+          <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
@@ -128,7 +128,7 @@
         <attributeValues>
           <entry>
             <key>precision</key>
-            <value class="java.lang.String">2</value>
+            <value class="java.lang.String">10</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -153,7 +153,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>COLUMN1</name>
+      <name>CREATED_BY</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -168,7 +168,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>COLUMN2</name>
+      <name>CREATED_ON</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>DATE</typeName>
@@ -221,6 +221,32 @@
         <name>CONTACT_INFL_LEVEL_LOOKUP_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>SFA_CONTACT_INFL_LEVEL_LOOKUP</name>
+          <schemaName>SCHEMA1</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SCHEMA1</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SFA_CONTACTS_SFA_ADDRESS_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>ADDRESS_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SFA_CONTACTS</name>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SCHEMA1</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>SFA_ADDRESS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SFA_ADDRESS</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>

@@ -47,7 +47,7 @@
         <attributeValues>
           <entry>
             <key>precision</key>
-            <value class="java.lang.String">2</value>
+            <value class="java.lang.String">10</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -211,32 +211,6 @@
         <name>PRIORITY_LOOKUP_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>SFA_PRIORITY_LOOKUP</name>
-          <schemaName>SCHEMA1</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SCHEMA1</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>TASKS_USERS_FK1</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ASSIGNED_USER_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_TASKS</name>
-            <schemaName>SCHEMA1</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SCHEMA1</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>USERS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_EMPLOYEES</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>

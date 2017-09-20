@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>SFA_PRIORITY_LOOKUP</name>
+  <name>SFA_APPOINTMENTS</name>
   <columns>
     <column>
-      <name>PRIORITY</name>
+      <name>INTER_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -18,7 +18,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>TYPE</name>
+      <name>LOCATION</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -33,49 +33,16 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>CREATED_BY</name>
+      <name>DIRECTION</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>precision</key>
-            <value class="java.lang.String">10</value>
+            <value class="java.lang.String">1</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>COLUMN2</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>UPDATED_BY</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">10</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>UPDATED_ON</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
@@ -83,12 +50,12 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>PRIORITY_LOOKUP_PK</name>
+      <name>SFA_APPOINTMENTS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>PRIORITY</name>
+          <name>INTER_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_PRIORITY_LOOKUP</name>
+            <name>SFA_APPOINTMENTS</name>
             <schemaName>SCHEMA1</schemaName>
             <type>TABLE</type>
           </parent>
@@ -98,9 +65,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>PRIORITY_LOOKUP_PK</name>
+        <name>SFA_APPOINTMENTS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_PRIORITY_LOOKUP</name>
+          <name>SFA_APPOINTMENTS</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
@@ -108,13 +75,39 @@
         <type>INDEX</type>
       </indexID>
     </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SFA_APPOINTMENTS_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>INTER_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SFA_APPOINTMENTS</name>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SCHEMA1</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>INTERACTIONS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SFA_INTERACTIONS</name>
+          <schemaName>SCHEMA1</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SCHEMA1</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
   </constraints>
   <indexes>
     <index>
-      <name>PRIORITY_LOOKUP_PK</name>
+      <name>SFA_APPOINTMENTS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>PRIORITY</expressionSource>
+          <expressionSource>INTER_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

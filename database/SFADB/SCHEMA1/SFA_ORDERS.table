@@ -18,7 +18,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>OPP_ID</name>
+      <name>CUSTOMER_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -33,7 +33,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>USER_IN_CHARGE_ID</name>
+      <name>SALES_REP_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -48,7 +48,23 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>START_DATE</name>
+      <name>DISCOUNT</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">3</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">0</default>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>ORDER_DATE</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>DATE</typeName>
@@ -57,7 +73,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>END_DATE</name>
+      <name>DELIVERY_DATE</name>
       <dataTypeUsage>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
           <typeName>DATE</typeName>
@@ -68,10 +84,10 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>CONTRACTS_OPPORTUNITY_FK1</name>
+      <name>SFA_ORDERS_SFA_CUSTOMERS_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>OPP_ID</name>
+          <name>CUSTOMER_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>SFA_ORDERS</name>
             <schemaName>SCHEMA1</schemaName>
@@ -83,9 +99,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>OPPORTUNITY_PK</name>
+        <name>CUSTOMERS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_OPPORTUNITY</name>
+          <name>SFA_CUSTOMERS</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
@@ -94,10 +110,10 @@
       </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>CONTRACTS_USERS_FK1</name>
+      <name>SFA_ORDERS_SFA_EMPLOYEES_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>USER_IN_CHARGE_ID</name>
+          <name>SALES_REP_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>SFA_ORDERS</name>
             <schemaName>SCHEMA1</schemaName>
@@ -109,7 +125,7 @@
       </columnIDs>
       <enabled>true</enabled>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>USERS_PK</name>
+        <name>SFA_EMPLOYEES_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>SFA_EMPLOYEES</name>
           <schemaName>SCHEMA1</schemaName>

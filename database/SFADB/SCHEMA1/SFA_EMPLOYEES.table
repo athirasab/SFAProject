@@ -18,36 +18,6 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>USERNAME</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">25</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-    </column>
-    <column>
-      <name>PASSWORD</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-    </column>
-    <column>
       <name>EMP_REF_ID</name>
       <dataTypeUsage>
         <attributeValues>
@@ -141,19 +111,19 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>CONTACT_ID</name>
+      <name>EMAIL_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>precision</key>
-            <value class="java.lang.String">10</value>
+            <key>size</key>
+            <value class="java.lang.Long">50</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
+          <typeName>NVARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
     </column>
     <column>
       <name>MANAGER_ID</name>
@@ -169,6 +139,22 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
+    </column>
+    <column>
+      <name>IS_ACTIVE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">1</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">1</default>
+      <notNull>true</notNull>
     </column>
     <column>
       <name>CREATED_BY</name>
@@ -220,34 +206,8 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>USERS_CONTACTS_FK1</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CONTACT_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_EMPLOYEES</name>
-            <schemaName>SCHEMA1</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SCHEMA1</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>CONTACTS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_CONTACTS</name>
-          <schemaName>SCHEMA1</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SCHEMA1</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>USERS_PK</name>
+      <name>SFA_EMPLOYEES_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>EMP_ID</name>
@@ -262,7 +222,7 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>USERS_PK</name>
+        <name>SFA_EMPLOYEES_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>SFA_EMPLOYEES</name>
           <schemaName>SCHEMA1</schemaName>
@@ -272,10 +232,62 @@
         <type>INDEX</type>
       </indexID>
     </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SFA_EMPLOYEES_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>MANAGER_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SFA_EMPLOYEES</name>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SCHEMA1</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>SFA_EMPLOYEES_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SFA_EMPLOYEES</name>
+          <schemaName>SCHEMA1</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SCHEMA1</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SFA_EMPLOYEES_SFA_USERS_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>EMP_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SFA_EMPLOYEES</name>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SCHEMA1</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>SFA_USERS_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SFA_USERS</name>
+          <schemaName>SCHEMA1</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SCHEMA1</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
   </constraints>
   <indexes>
     <index>
-      <name>USERS_PK</name>
+      <name>SFA_EMPLOYEES_PK</name>
       <columnExpressions>
         <columnExpression>
           <expressionSource>EMP_ID</expressionSource>

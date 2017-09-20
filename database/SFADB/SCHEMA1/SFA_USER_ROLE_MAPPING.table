@@ -3,7 +3,7 @@
   <name>SFA_USER_ROLE_MAPPING</name>
   <columns>
     <column>
-      <name>USER_ID</name>
+      <name>EMP_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -100,11 +100,11 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>SFA_USER_ROLE_MAPPING_PK</name>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SFA_USER_ROLE_MAPPING_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>USER_ID</name>
+          <name>EMP_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>SFA_USER_ROLE_MAPPING</name>
             <schemaName>SCHEMA1</schemaName>
@@ -115,16 +115,16 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <indexID class="oracle.javatools.db.NameBasedID">
-        <name>SFA_USER_ROLE_MAPPING_PK</name>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>SFA_EMPLOYEES_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_USER_ROLE_MAPPING</name>
+          <name>SFA_EMPLOYEES</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
         <schemaName>SCHEMA1</schemaName>
-        <type>INDEX</type>
-      </indexID>
+        <type>CONSTRAINT</type>
+      </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
       <name>USER_ROLE_LINK_ROLES_FK1</name>
@@ -152,11 +152,11 @@
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>USER_ROLE_LINK_USERS_FK1</name>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>SFA_USER_ROLE_MAPPING_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>USER_ID</name>
+          <name>EMP_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>SFA_USER_ROLE_MAPPING</name>
             <schemaName>SCHEMA1</schemaName>
@@ -167,16 +167,16 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>USERS_PK</name>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>SFA_USER_ROLE_MAPPING_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_EMPLOYEES</name>
+          <name>SFA_USER_ROLE_MAPPING</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
         <schemaName>SCHEMA1</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
+        <type>INDEX</type>
+      </indexID>
     </constraint>
   </constraints>
   <indexes>
@@ -184,7 +184,7 @@
       <name>SFA_USER_ROLE_MAPPING_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>USER_ID</expressionSource>
+          <expressionSource>EMP_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

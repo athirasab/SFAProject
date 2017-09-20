@@ -198,7 +198,7 @@
         <attributeValues>
           <entry>
             <key>precision</key>
-            <value class="java.lang.String">2</value>
+            <value class="java.lang.String">10</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -213,7 +213,7 @@
         <attributeValues>
           <entry>
             <key>precision</key>
-            <value class="java.lang.String">2</value>
+            <value class="java.lang.String">10</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -333,32 +333,6 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>OPPORTUNITY_PK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>OPP_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_OPPORTUNITY</name>
-            <schemaName>SCHEMA1</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SCHEMA1</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <indexID class="oracle.javatools.db.NameBasedID">
-        <name>OPPORTUNITY_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_OPPORTUNITY</name>
-          <schemaName>SCHEMA1</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SCHEMA1</schemaName>
-        <type>INDEX</type>
-      </indexID>
-    </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
       <name>OPPORTUNITY_CUSTOMERS_FK1</name>
       <columnIDs>
@@ -515,11 +489,11 @@
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>OPPORTUNITY_USERS_FK1</name>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>OPPORTUNITY_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CREATOR_USER_ID</name>
+          <name>OPP_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>SFA_OPPORTUNITY</name>
             <schemaName>SCHEMA1</schemaName>
@@ -530,16 +504,16 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>USERS_PK</name>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>OPPORTUNITY_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_EMPLOYEES</name>
+          <name>SFA_OPPORTUNITY</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
         <schemaName>SCHEMA1</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
+        <type>INDEX</type>
+      </indexID>
     </constraint>
   </constraints>
   <indexes>

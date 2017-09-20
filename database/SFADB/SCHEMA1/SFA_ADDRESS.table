@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>SFA_PRIORITY_LOOKUP</name>
+  <name>SFA_ADDRESS</name>
   <columns>
     <column>
-      <name>PRIORITY</name>
+      <name>ADDRESS_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -18,7 +18,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>TYPE</name>
+      <name>LINE_1</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -33,49 +33,31 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>CREATED_BY</name>
+      <name>LINE_2</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>precision</key>
-            <value class="java.lang.String">10</value>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
+          <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
     </column>
     <column>
-      <name>COLUMN2</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>UPDATED_BY</name>
+      <name>COLUMN1</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>precision</key>
-            <value class="java.lang.String">10</value>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>UPDATED_ON</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
+          <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
@@ -83,12 +65,12 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.PKConstraint">
-      <name>PRIORITY_LOOKUP_PK</name>
+      <name>SFA_ADDRESS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>PRIORITY</name>
+          <name>ADDRESS_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_PRIORITY_LOOKUP</name>
+            <name>SFA_ADDRESS</name>
             <schemaName>SCHEMA1</schemaName>
             <type>TABLE</type>
           </parent>
@@ -98,9 +80,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>PRIORITY_LOOKUP_PK</name>
+        <name>SFA_ADDRESS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_PRIORITY_LOOKUP</name>
+          <name>SFA_ADDRESS</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
@@ -111,10 +93,10 @@
   </constraints>
   <indexes>
     <index>
-      <name>PRIORITY_LOOKUP_PK</name>
+      <name>SFA_ADDRESS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>PRIORITY</expressionSource>
+          <expressionSource>ADDRESS_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>SFA_PRIORITY_LOOKUP</name>
+  <name>SFA_CURRENCY_TYPE_LOOKUP</name>
   <columns>
     <column>
-      <name>PRIORITY</name>
+      <name>CURRENCY_TYPE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -18,12 +18,12 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>TYPE</name>
+      <name>CURRENCY_NAME</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
             <key>size</key>
-            <value class="java.lang.Long">20</value>
+            <value class="java.lang.Long">30</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
@@ -33,7 +33,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>CREATED_BY</name>
+      <name>CURRENCY_TYPE1</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -45,50 +45,43 @@
           <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>COLUMN2</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>UPDATED_BY</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">10</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
-    </column>
-    <column>
-      <name>UPDATED_ON</name>
-      <dataTypeUsage>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>DATE</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>PRIORITY_LOOKUP_PK</name>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>SFA_CURRENCY_TYPE_LOOKUP_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>PRIORITY</name>
+          <name>CURRENCY_TYPE1</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_PRIORITY_LOOKUP</name>
+            <name>SFA_CURRENCY_TYPE_LOOKUP</name>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SCHEMA1</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>SFA_CURRENCY_TYPE_LOOKUP_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SFA_CURRENCY_TYPE_LOOKUP</name>
+          <schemaName>SCHEMA1</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SCHEMA1</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>SFA_CURRENCY_TYPE_LOOKUP_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>CURRENCY_TYPE</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SFA_CURRENCY_TYPE_LOOKUP</name>
             <schemaName>SCHEMA1</schemaName>
             <type>TABLE</type>
           </parent>
@@ -98,9 +91,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>PRIORITY_LOOKUP_PK</name>
+        <name>SFA_CURRENCY_TYPE_LOOKUP_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_PRIORITY_LOOKUP</name>
+          <name>SFA_CURRENCY_TYPE_LOOKUP</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
@@ -111,10 +104,10 @@
   </constraints>
   <indexes>
     <index>
-      <name>PRIORITY_LOOKUP_PK</name>
+      <name>SFA_CURRENCY_TYPE_LOOKUP_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>PRIORITY</expressionSource>
+          <expressionSource>CURRENCY_TYPE</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

@@ -8,7 +8,7 @@
         <attributeValues>
           <entry>
             <key>precision</key>
-            <value class="java.lang.String">2</value>
+            <value class="java.lang.String">10</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">

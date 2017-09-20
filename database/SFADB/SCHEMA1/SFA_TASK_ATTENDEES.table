@@ -18,7 +18,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>CONTACT_ID</name>
+      <name>USER_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -83,33 +83,7 @@
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>TASK_OPP_MAP_CONTACTS_FK1</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CONTACT_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_TASK_ATTENDEES</name>
-            <schemaName>SCHEMA1</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SCHEMA1</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>CONTACTS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>CONTACTS</name>
-          <schemaName>SCHEMA1</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SCHEMA1</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>TASK_OPP_MAP_TASKS_FK1</name>
+      <name>SFA_TASK_ATTENDEES_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>TASK_ID</name>

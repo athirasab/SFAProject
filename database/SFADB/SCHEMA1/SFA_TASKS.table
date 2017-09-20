@@ -102,7 +102,22 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>OPP_ID</name>
+      <name>TASK_TYPE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">3</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+    </column>
+    <column>
+      <name>FORIEGN_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -115,6 +130,22 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
+    </column>
+    <column>
+      <name>IS_ACTIVE</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">1</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <default class="java.lang.String">1</default>
+      <notNull>true</notNull>
     </column>
     <column>
       <name>CREATED_BY</name>
@@ -166,11 +197,11 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>TASKS_OPPORTUNITY_FK1</name>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>TASKS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>OPP_ID</name>
+          <name>TASK_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>SFA_TASKS</name>
             <schemaName>SCHEMA1</schemaName>
@@ -181,16 +212,16 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>OPPORTUNITY_PK</name>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>TASKS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_OPPORTUNITY</name>
+          <name>SFA_TASKS</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
         <schemaName>SCHEMA1</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
+        <type>INDEX</type>
+      </indexID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
       <name>TASKS_PRIORITY_LOOKUP_FK1</name>
@@ -217,32 +248,6 @@
         <schemaName>SCHEMA1</schemaName>
         <type>CONSTRAINT</type>
       </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>TASKS_PK</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>TASK_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_TASKS</name>
-            <schemaName>SCHEMA1</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SCHEMA1</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <indexID class="oracle.javatools.db.NameBasedID">
-        <name>TASKS_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_TASKS</name>
-          <schemaName>SCHEMA1</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SCHEMA1</schemaName>
-        <type>INDEX</type>
-      </indexID>
     </constraint>
   </constraints>
   <indexes>

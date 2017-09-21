@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
+  <name>SYS</name>
+  <properties>
+    <entry>
+      <key>BUILT_IN_OBJECT</key>
+      <value class="java.lang.Boolean">true</value>
+    </entry>
+  </properties>
+</schema>

@@ -96,7 +96,7 @@
       <notNull>false</notNull>
     </column>
     <column>
-      <name>INTER_TYPE</name>
+      <name>INTERACTION_TYPE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -221,7 +221,7 @@
       <name>INTERACTIONS_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>INTER_TYPE</name>
+          <name>INTERACTION_TYPE</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>SFA_INTERACTIONS</name>
             <schemaName>SCHEMA1</schemaName>
@@ -235,7 +235,7 @@
       <referenceID class="oracle.javatools.db.NameBasedID">
         <name>INTER_TYPE_LOOKUP_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_INTER_TYPE_LOOKUP</name>
+          <name>SFA_INTERACTION_TYPE_LOOKUP</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>

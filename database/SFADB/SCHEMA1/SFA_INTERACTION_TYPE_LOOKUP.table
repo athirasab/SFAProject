@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>SFA_INTERACTION_ATTENDEES</name>
+  <name>SFA_INTERACTION_TYPE_LOOKUP</name>
   <columns>
     <column>
-      <name>INTER_ID</name>
+      <name>TYPE_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -18,16 +18,16 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>USER_ID</name>
+      <name>TYPE</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>precision</key>
-            <value class="java.lang.String">10</value>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
+          <typeName>VARCHAR2</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
@@ -113,13 +113,13 @@
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>INTERACTION_INVITEE_MAP_FK1</name>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <name>INTER_TYPE_LOOKUP_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>INTER_ID</name>
+          <name>TYPE_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_INTERACTION_ATTENDEES</name>
+            <name>SFA_INTERACTION_TYPE_LOOKUP</name>
             <schemaName>SCHEMA1</schemaName>
             <type>TABLE</type>
           </parent>
@@ -128,18 +128,34 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>INTERACTIONS_PK</name>
+      <indexID class="oracle.javatools.db.NameBasedID">
+        <name>INTER_TYPE_LOOKUP_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_INTERACTIONS</name>
+          <name>SFA_INTERACTION_TYPE_LOOKUP</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
         <schemaName>SCHEMA1</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
+        <type>INDEX</type>
+      </indexID>
     </constraint>
   </constraints>
+  <indexes>
+    <index>
+      <name>INTER_TYPE_LOOKUP_PK</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>TYPE_ID</expressionSource>
+          <orderType>ASC</orderType>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>UNIQUE</indexType>
+      <schema>
+        <name>SCHEMA1</name>
+      </schema>
+      <systemGenerated>true</systemGenerated>
+    </index>
+  </indexes>
   <properties>
     <entry>
       <key>TableType</key>

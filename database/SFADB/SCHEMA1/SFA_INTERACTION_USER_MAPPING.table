@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>SFA_OPP_CONTACT_MAP</name>
+  <name>SFA_INTERACTION_USER_MAPPING</name>
   <columns>
     <column>
-      <name>OPP_ID</name>
+      <name>INTER_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -18,7 +18,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>CONTACT_ID</name>
+      <name>USER_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -45,7 +45,7 @@
           <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
     <column>
       <name>CREATED_ON</name>
@@ -54,7 +54,7 @@
           <typeName>DATE</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
     <column>
       <name>UPDATED_BY</name>
@@ -109,17 +109,17 @@
         </dataTypeID>
       </dataTypeUsage>
       <default class="java.lang.String">1</default>
-      <notNull>false</notNull>
+      <notNull>true</notNull>
     </column>
   </columns>
   <constraints>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>OPP_CONTACT_MAP_CONTACTS_FK1</name>
+      <name>INTERACTION_INVITEE_MAP_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>CONTACT_ID</name>
+          <name>INTER_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_OPP_CONTACT_MAP</name>
+            <name>SFA_INTERACTION_USER_MAPPING</name>
             <schemaName>SCHEMA1</schemaName>
             <type>TABLE</type>
           </parent>
@@ -129,35 +129,9 @@
       </columnIDs>
       <enabled>true</enabled>
       <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>CONTACTS_PK</name>
+        <name>INTERACTIONS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_CONTACTS</name>
-          <schemaName>SCHEMA1</schemaName>
-          <type>TABLE</type>
-        </parent>
-        <schemaName>SCHEMA1</schemaName>
-        <type>CONSTRAINT</type>
-      </referenceID>
-    </constraint>
-    <constraint class="oracle.javatools.db.FKConstraint">
-      <name>OPP_CONTACT_MAP_FK1</name>
-      <columnIDs>
-        <columnID class="oracle.javatools.db.NameBasedID">
-          <name>OPP_ID</name>
-          <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_OPP_CONTACT_MAP</name>
-            <schemaName>SCHEMA1</schemaName>
-            <type>TABLE</type>
-          </parent>
-          <schemaName>SCHEMA1</schemaName>
-          <type>COLUMN</type>
-        </columnID>
-      </columnIDs>
-      <enabled>true</enabled>
-      <referenceID class="oracle.javatools.db.NameBasedID">
-        <name>OPPORTUNITY_PK</name>
-        <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_OPPORTUNITY</name>
+          <name>SFA_INTERACTIONS</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>

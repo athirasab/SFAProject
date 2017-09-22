@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>SFA_INTER_TYPE_LOOKUP</name>
+  <name>SFA_OPPORTUNITY_CONTACT_MAP</name>
   <columns>
     <column>
-      <name>TYPE_ID</name>
+      <name>OPP_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -18,16 +18,16 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>TYPE</name>
+      <name>CONTACT_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
-            <key>size</key>
-            <value class="java.lang.Long">20</value>
+            <key>precision</key>
+            <value class="java.lang.String">10</value>
           </entry>
         </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
+          <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
@@ -45,7 +45,7 @@
           <typeName>NUMBER</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
     </column>
     <column>
       <name>CREATED_ON</name>
@@ -54,7 +54,7 @@
           <typeName>DATE</typeName>
         </dataTypeID>
       </dataTypeUsage>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
     </column>
     <column>
       <name>UPDATED_BY</name>
@@ -109,17 +109,17 @@
         </dataTypeID>
       </dataTypeUsage>
       <default class="java.lang.String">1</default>
-      <notNull>true</notNull>
+      <notNull>false</notNull>
     </column>
   </columns>
   <constraints>
-    <constraint class="oracle.javatools.db.PKConstraint">
-      <name>INTER_TYPE_LOOKUP_PK</name>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>OPP_CONTACT_MAP_CONTACTS_FK1</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>TYPE_ID</name>
+          <name>CONTACT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_INTER_TYPE_LOOKUP</name>
+            <name>SFA_OPPORTUNITY_CONTACT_MAP</name>
             <schemaName>SCHEMA1</schemaName>
             <type>TABLE</type>
           </parent>
@@ -128,34 +128,44 @@
         </columnID>
       </columnIDs>
       <enabled>true</enabled>
-      <indexID class="oracle.javatools.db.NameBasedID">
-        <name>INTER_TYPE_LOOKUP_PK</name>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>CONTACTS_PK</name>
         <parent class="oracle.javatools.db.NameBasedID">
-          <name>SFA_INTER_TYPE_LOOKUP</name>
+          <name>SFA_CONTACTS</name>
           <schemaName>SCHEMA1</schemaName>
           <type>TABLE</type>
         </parent>
         <schemaName>SCHEMA1</schemaName>
-        <type>INDEX</type>
-      </indexID>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <name>OPP_CONTACT_MAP_FK1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.NameBasedID">
+          <name>OPP_ID</name>
+          <parent class="oracle.javatools.db.NameBasedID">
+            <name>SFA_OPPORTUNITY_CONTACT_MAP</name>
+            <schemaName>SCHEMA1</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>SCHEMA1</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <referenceID class="oracle.javatools.db.NameBasedID">
+        <name>OPPORTUNITY_PK</name>
+        <parent class="oracle.javatools.db.NameBasedID">
+          <name>SFA_OPPORTUNITY</name>
+          <schemaName>SCHEMA1</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>SCHEMA1</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
     </constraint>
   </constraints>
-  <indexes>
-    <index>
-      <name>INTER_TYPE_LOOKUP_PK</name>
-      <columnExpressions>
-        <columnExpression>
-          <expressionSource>TYPE_ID</expressionSource>
-          <orderType>ASC</orderType>
-        </columnExpression>
-      </columnExpressions>
-      <indexType>UNIQUE</indexType>
-      <schema>
-        <name>SCHEMA1</name>
-      </schema>
-      <systemGenerated>true</systemGenerated>
-    </index>
-  </indexes>
   <properties>
     <entry>
       <key>TableType</key>

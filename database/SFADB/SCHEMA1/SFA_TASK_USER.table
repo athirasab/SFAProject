@@ -1,6 +1,6 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <table xmlns="http://xmlns.oracle.com/jdeveloper/1211/offlinedb">
-  <name>SFA_TASK_ATTENDEES</name>
+  <name>SFA_TASK_USER</name>
   <columns>
     <column>
       <name>TASK_ID</name>
@@ -88,7 +88,7 @@
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>TASK_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
-            <name>SFA_TASK_ATTENDEES</name>
+            <name>SFA_TASK_USER</name>
             <schemaName>SCHEMA1</schemaName>
             <type>TABLE</type>
           </parent>

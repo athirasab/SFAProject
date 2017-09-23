@@ -74,6 +74,7 @@
          <string v="ADFbc-Modeling"/>
          <string v="Database"/>
          <string v="Database-Modeling"/>
+         <string v="XML"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
